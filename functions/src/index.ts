@@ -12,9 +12,8 @@ const client = new firestore.v1.FirestoreAdminClient();
 
 // Replace BUCKET_NAME
 const bucket = "gs://my_first_project_backup";
-
 exports.scheduledFirestoreExport = functions.pubsub
-  .schedule("every 24 hours")
+  .schedule("0 9 * * *")
   .onRun(async () => {
     const projectId = process.env.GCP_PROJECT || process.env.GCLOUD_PROJECT;
     if (typeof projectId !== "string") {
