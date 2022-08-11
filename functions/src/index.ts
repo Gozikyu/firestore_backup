@@ -10,8 +10,7 @@ import * as functions from "firebase-functions";
 import * as firestore from "@google-cloud/firestore";
 const client = new firestore.v1.FirestoreAdminClient();
 
-// Replace BUCKET_NAME
-const bucket = "gs://my_first_project_backup";
+const bucket = "gs://bucket_name"; // Replace BUCKET_NAME
 exports.scheduledFirestoreExport = functions.pubsub
   .schedule("0 9 * * *")
   .onRun(async () => {
